@@ -1,43 +1,45 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+'use strict';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  TextInput
-} from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { NavigatorIOS, Text , AppRegistry , View , TouchableHighlight } from 'react-native';
 
-export default class AwesomeProject extends Component {
+export default class LocationFinder extends Component {
   render() {
     return (
-      <View> </View>
+      <NavigatorIOS
+        initialRoute={{
+          component: LaunchScreen,
+          title: 'My Initial Scene',
+        }}
+        style={{flex: 1}}
+      />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+class LaunchScreen extends Component {
+  /*static propTypes = {
+    title: PropTypes.string.isRequired,
+    navigator: PropTypes.object.isRequired,
+  }
 
-AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
+  _onForward = () => {
+    this.props.navigator.push({
+      title: 'Scene ' + nextIndex,
+    });
+  }*/
+
+  render() {
+    return (
+      <View>
+        {/* <Text>Current Scene: { this.props.title }</Text>
+        <TouchableHighlight onPress={this._onForward}>
+          <Text>Tap me to load the next scene</Text>
+        </TouchableHighlight> */}
+      </View>
+    )
+  }
+}
+
+// skip this line if using Create React Native App
+AppRegistry.registerComponent('AwesomeProject', () => LocationFinder);
