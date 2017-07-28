@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component, PropTypes } from 'react';
-import { NavigatorIOS, Text , AppRegistry , View , TouchableHighlight, StyleSheet } from 'react-native';
+import { NavigatorIOS, Text, AppRegistry, View, TouchableHighlight, StyleSheet, Button } from 'react-native';
 import Location from './js/components/Location.js'
 
 export default class LocationFinder extends Component {
@@ -12,7 +12,7 @@ export default class LocationFinder extends Component {
           component: LaunchScreen,
           title: 'My Initial Scene',
         }}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
     );
   }
@@ -22,33 +22,35 @@ class LaunchScreen extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
   }
+  
+  constructor(props, context) {
+    super(props, context);
+    this._onForward = this._onForward.bind(this);
+  }
 
   _onForward = () => {
     this.props.navigator.push({
-      title: 'Scene ' + nextIndex,
+      title: 'Places ',
+      component: Location,
     });
   }
 
   render() {
     return (
       <View style={styles.parentView}>
-        <Location/>
+         <Button 
+          title="Show Places"
+          onPress={this._onForward}>
+        </Button> 
       </View>
-
-      // <View>
-      //   <Text>Current Scene: {this.props.title}</Text>
-      //   <TouchableHighlight onPress={this._onForward}>
-      //     <Text>Tap me to load the next scene</Text>
-      //   </TouchableHighlight>
-      // </View>
     )
   }
 }
 
 var styles = StyleSheet.create({
-  parentView:{
-    paddingTop:64
-  }
+  parentView: {
+    paddingTop: 64,
+  },
 });
 
 // skip this line if using Create React Native App
