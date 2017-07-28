@@ -1,7 +1,8 @@
 'use strict';
 
 import React, { Component, PropTypes } from 'react';
-import { NavigatorIOS, Text , AppRegistry , View , TouchableHighlight } from 'react-native';
+import { NavigatorIOS, Text , AppRegistry , View , TouchableHighlight, StyleSheet } from 'react-native';
+import Location from './js/components/Location.js'
 
 export default class LocationFinder extends Component {
   render() {
@@ -18,8 +19,7 @@ export default class LocationFinder extends Component {
 }
 
 class LaunchScreen extends Component {
-  /*static propTypes = {
-    title: PropTypes.string.isRequired,
+  static propTypes = {
     navigator: PropTypes.object.isRequired,
   }
 
@@ -27,19 +27,29 @@ class LaunchScreen extends Component {
     this.props.navigator.push({
       title: 'Scene ' + nextIndex,
     });
-  }*/
+  }
 
   render() {
     return (
-      <View>
-        {/* <Text>Current Scene: { this.props.title }</Text>
-        <TouchableHighlight onPress={this._onForward}>
-          <Text>Tap me to load the next scene</Text>
-        </TouchableHighlight> */}
+      <View style={styles.parentView}>
+        <Location/>
       </View>
+
+      // <View>
+      //   <Text>Current Scene: {this.props.title}</Text>
+      //   <TouchableHighlight onPress={this._onForward}>
+      //     <Text>Tap me to load the next scene</Text>
+      //   </TouchableHighlight>
+      // </View>
     )
   }
 }
+
+var styles = StyleSheet.create({
+  parentView:{
+    paddingTop:64
+  }
+});
 
 // skip this line if using Create React Native App
 AppRegistry.registerComponent('AwesomeProject', () => LocationFinder);
