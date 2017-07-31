@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import MapView from 'react-native-maps'
+import Callout from '/Users/st29/Programs/react/TextInput/AwesomeProject/js/components/Callout.js';
 
 // Import data
 import { characters } from '/Users/st29/Programs/react/TextInput/AwesomeProject/js/components/Data.js';
@@ -25,10 +26,10 @@ export default class MapPlaces extends Component {
         {/* Map*/}
         <MapView
           style={styles.map}
-          // Position on Manhattan, New York
+          // Position on Ahmedabad, Gujarat
           initialRegion={{
-            latitude: 40.77096,
-            longitude: -73.97702,
+            latitude: 23.0225,
+            longitude: 72.5714,
             latitudeDelta: 0.0491,
             longitudeDelta: 0.0375,
           }}
@@ -41,10 +42,20 @@ export default class MapPlaces extends Component {
                 latitude: character.coordinate[0],
                 longitude: character.coordinate[1],
               }}
+              // Callout offset
+              calloutOffset={{ x: -8, y: 28 }}
               // Greed color for good characters and red for others
               pinColor={character.good ? '#009688' : '#f44336'}
-              key={index}
-            />
+              key={index}>
+
+              {/* Callout */}
+              <MapView.Callout tooltip style={styles.callout}>
+                <Callout
+                  name={character.name}
+                  image={character.image}
+                />
+                </MapView.Callout>
+              </MapView.Marker>
           )}
         </MapView>
         {/* Button */}
@@ -82,5 +93,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 12,
     width: 160,
+  },
+  callout:{
+    width:160,
   },
 });
