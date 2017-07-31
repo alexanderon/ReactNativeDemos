@@ -13,13 +13,13 @@ export const characters = [
   },
   {
     name: 'Mehsana',
-    image: 'http://photos.wikimapia.org/p/00/02/46/49/78_big.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Rajmahal_Mehsana_Gujarat_India.jpg/1200px-Rajmahal_Mehsana_Gujarat_India.jpg',
     coordinate: [23.5880, 72.3693],
     good: true,
   },
   {
     name: 'Kalol',
-    image: 'http://www.baps.org/Data/Sites/1/Media/GalleryImages/7813/WebImages/001_BAPS_Kalol_Dashabdi_mahotsav_f.jpg',
+    image: 'https://images.trvl-media.com/media/content/shared/images/travelguides/destination/6126826/Ahmedabad-And-Vicinity-97547.jpg',
     coordinate: [23.2464, 72.5087],
     good: true,
   },
